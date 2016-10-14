@@ -26,8 +26,12 @@ module.exports = (robot) ->
     format = res.match[2]
     message = res.match[3]
     if format in hours
-      setTimeout (-> res.reply " Remember buddy => " + message), number * 60 * 60 * 1000
+      setTimeout (-> res.reply " Remember buddy => " + message), number * 3600000
     if format in minutes
-      setTimeout (-> res.reply " Remember buddy => " + message), number * 60 * 1000
+      setTimeout (-> res.reply " Remember buddy => " + message), number * 60000
     if format in secondes
       setTimeout (-> res.reply " Remember buddy => " + message), number * 1000
+
+
+
+
