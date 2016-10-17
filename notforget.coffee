@@ -9,7 +9,7 @@
 #
 # Commands:
 #   hubot remember <hours>h<minutes>m<seconds>s <message>
-#   example : hubot remember 01h25m40s Deploy QUA env
+#   example : hubot remember 01h25m40s Deploy in CQT env
 #
 # Author:
 #   maximegil <maxime.gil.pro@gmail.com>
