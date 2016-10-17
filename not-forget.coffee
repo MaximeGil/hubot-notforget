@@ -18,8 +18,7 @@
 module.exports = (robot) ->
   understood = ["Okay sir!", "Again? Right.", "I'm on it!", "I got it :wink:"]
   
-  
-  # Regex explanation for exemple hubot remember 01h25m40s Deploy QUA env
+  # Regex explanation for example : hubot remember 01h25m40s Deploy QUA env
   # Group 1 => 01
   # Group 2 => h
   # Group 3 => 25
@@ -34,7 +33,10 @@ module.exports = (robot) ->
     seconds = res.match[5]
     message = res.match[7]
     time = (hours * 3600000) + (minutes * 60000) + (seconds * 1000)
-    setTimeout (-> res.reply " REMEMBER : " + message), time
+    dt = new Date()
+    timeUTC = dt.toUTCString()
+    setTimeout (-> res.reply " REMEMBER : #{message} (started at #{timeUTC})"), time
+
 
 
 
