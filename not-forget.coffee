@@ -33,10 +33,8 @@ module.exports = (robot) ->
     seconds = res.match[5]
     message = res.match[7]
     time = (hours * 3600000) + (minutes * 60000) + (seconds * 1000)
-    dt = new Date()
-    timeUTC = dt.toUTCString()
-    setTimeout (-> res.reply " REMEMBER : #{message} (started at #{timeUTC})"), time
-
+    startedTime = new Date().toUTCString()
+    setTimeout (-> res.reply " REMEMBER : #{message} (started at #{startedTime})"), time
 
 
 
