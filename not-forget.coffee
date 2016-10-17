@@ -8,29 +8,25 @@
 #   None
 #
 # Commands:
-#   hubot remember <number> <format> <message>
+#   hubot remember <hours>h<minutes>m<seconds>s <message>
+#   example : hubot remember 01h25m40s Deploy QUA env
 #
 # Author:
 #   maximegil <maxime.gil.pro@gmail.com>
 #
 
 module.exports = (robot) ->
-  hours = ["h", "H", "hour", "hours"]
-  minutes = ["m", "M", "minute", "minutes"]
-  secondes = ["s", "S", "second", "seconds"]
-  understood = ["Okay sir!", "Again? Right...", "That's my job! I'm your memory :yum:", "I accept :blush:", "It's okay :wink:"]
+  understood = ["Okay sir!", "Again? Right.", "I'm on it!"]
 
-  robot.respond /remember\s+(\d+)\s+([a-zA-Z]+)\s+(.*)$/i, (res) ->
+  robot.respond /remember\s+(\d\d+)([a-zA-Z]+)(\d\d+)([a-zA-Z]+)(\d\d+)([a-zA-Z]+)\s+(.*)$/i, (res) ->
     res.reply res.random understood
-    number = res.match[1]
-    format = res.match[2]
-    message = res.match[3]
-    if format in hours
-      setTimeout (-> res.reply " Remember buddy => " + message), number * 3600000
-    if format in minutes
-      setTimeout (-> res.reply " Remember buddy => " + message), number * 60000
-    if format in secondes
-      setTimeout (-> res.reply " Remember buddy => " + message), number * 1000
+    hours = res.match[1]
+    minutes = res.match[3]
+    seconds = res.match[5]
+    message = res.match[7]
+    time = (hours * 3600000) + (minutes * 60000) + (seconds * 1000)
+
+    setTimeout (-> res.reply " Remember buddy => " + message), time
 
 
 
