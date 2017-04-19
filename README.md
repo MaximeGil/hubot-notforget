@@ -20,4 +20,4 @@ hubot remember 01h15m34s Check if the script elScript is not down
 
 ### Contact
 
-If you want contact me, my mail is : xxxx@xxxx.com
+If you want contact me my twitter is : @MaximeGil34
